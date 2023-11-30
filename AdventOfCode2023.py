@@ -13,4 +13,3 @@ for i in contents:
 for i in range(len(contents)):
   pass
 
-
