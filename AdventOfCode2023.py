@@ -1,3 +1,4 @@
+
 contents = []
 
 with open("myfile.txt", "r") as f:
@@ -121,3 +122,144 @@ with open("myfile.txt", "r") as f:
 #   totalID += y
 
 #DAY 3
+#Part 1 - the file was modified so this program will not work on the original file
+# sum = 0
+# digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+# for i in range(len(contents)):
+#   for j in range(len(contents[i])):
+#     if contents[i][j] in digits and contents[i][j + 1] in digits and contents[i][j + 2] in digits:
+#       if contents[i][j-1] != '.' or contents[i][j + 3] != '.' or contents[i + 1][j - 1] != '.' or contents[i + 1][j] != '.' or contents[i + 1][j + 1] != '.' or contents[i + 1][j + 2] != '.' or contents[i + 1][j + 3] != '.' or contents[i - 1][j - 1] != '.' or contents[i - 1][j] != '.' or contents[i - 1][j + 1] != '.' or contents[i - 1][j + 2] != '.' or contents[i - 1][j + 3] != '.':
+#         sum += int(contents[i][j] + contents[i][j + 1] + contents[i][j + 2])
+#     elif contents[i][j] in digits and contents[i][j + 1] in digits and contents[i][j + 2] not in digits and contents[i][j - 1] not in digits:
+#       if contents[i][j-1] != '.' or contents[i][j + 2] != '.' or contents[i + 1][j - 1] != '.' or contents[i + 1][j] != '.' or contents[i + 1][j + 1] != '.' or contents[i + 1][j + 2] != '.' or contents[i - 1][j - 1] != '.' or contents[i - 1][j] != '.' or contents[i - 1][j + 1] != '.' or contents[i - 1][j + 2] != '.':
+#         sum += int(contents[i][j] + contents[i][j + 1])
+#     elif contents[i][j] in digits and contents[i][j-1] not in digits and contents[i][j+1] not in digits:
+#       if contents[i][j-1] != '.' or contents[i][j+1] != '.' or contents[i-1][j-1] != '.' or contents[i-1][j] != '.' or contents[i-1][j+1] != '.' or contents[i+1][j-1] != '.' or contents[i+1][j] != '.' or contents[i+1][j+1] != '.':
+#         sum += int(contents[i][j])
+#     else:
+#       continue
+#   print(sum)
+
+#Part 2
+# sumGearRatios = 0
+
+# def productList(ls):
+#   product = 1
+#   for item in ls:
+#     product = product * item
+#   return product
+    
+# for i in range(len(contents)):
+#   for j in range(len(contents[i])):
+#     if contents[i][j] == '*':
+#       partNums = []
+#       numNums = 0
+#       above = ''
+#       below = ''
+#       for x in range(-3, 4):
+#         above += contents[i - 1][j + x]
+#         below += contents[i + 1][j + x]
+#       left = contents[i][j - 3] + contents[i][j - 2] + contents[i][j - 1]
+#       right = contents[i][j + 1] + contents[i][j + 2] + contents[i][j + 3]
+#       if above[0].isdigit() and above[1].isdigit() and above[2].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[0] + above[1] + above[2]))
+#       if above[2].isdigit() and not above[1].isdigit() and not above[3].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[2]))
+#       if above[3].isdigit() and not above[2].isdigit() and not above[4].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[3]))
+#       if above[4].isdigit() and not above[3].isdigit() and not above[5].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[4]))
+#       if above[1].isdigit() and above[2].isdigit() and above[3].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[1] + above[2] + above[3]))
+#       if above[2].isdigit() and above[3].isdigit() and above[4].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[2] + above[3] + above[4]))
+#       if above[3].isdigit() and above[4].isdigit() and above[5].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[3] + above[4] + above[5]))
+#       if above[4].isdigit() and above[5].isdigit() and above[6].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[4] + above[5] + above[6]))
+#       if above[1].isdigit() and above[2].isdigit() and not above[0].isdigit() and not above[3].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[1] + above[2]))
+#       if above[2].isdigit() and above[3].isdigit() and not above[1].isdigit() and not above[4].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[2] + above[3]))
+#       if above[3].isdigit() and above[4].isdigit() and not above[2].isdigit() and not above[5].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[3] + above[4]))
+#       if above[4].isdigit() and above[5].isdigit() and not above[3].isdigit() and not above[6].isdigit():
+#         numNums += 1
+#         partNums.append(int(above[4] + above[5]))
+#       if below[0].isdigit() and below[1].isdigit() and  below[2].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[0] + below[1] + below[2]))
+#       if below[1].isdigit() and below[2].isdigit() and below[3].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[1] + below[2] + below[3]))
+#       if below[2].isdigit() and below[3].isdigit() and below[4].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[2] + below[3] + below[4]))
+#       if below[3].isdigit() and below[4].isdigit() and below[5].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[3] + below[4] + below[5]))
+#       if below[4].isdigit() and below[5].isdigit() and below[6].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[4] + below[5] + below[6]))
+#       if below[1].isdigit() and below[2].isdigit() and not below[0].isdigit() and not below[3].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[1] + below[2]))
+#       if below[2].isdigit() and below[3].isdigit() and not below[1].isdigit() and not below[4].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[2] + below[3]))
+      
+#       if below[3].isdigit() and below[4].isdigit() and not below[2].isdigit() and not below[5].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[3] + below[4]))
+#       if below[4].isdigit() and below[5].isdigit() and not below[3].isdigit() and not below[6].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[4] + below[5]))
+#       if below[2].isdigit() and not below[1].isdigit() and not below[3].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[2]))
+#       if below[3].isdigit() and not below[2].isdigit() and not below[4].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[3]))
+#       if below[4].isdigit() and not below[3].isdigit() and not below[5].isdigit():
+#         numNums += 1
+#         partNums.append(int(below[4]))
+#       if left[0].isdigit() and left[1].isdigit() and left[2].isdigit():
+#         numNums += 1
+#         partNums.append(int(left[0] + left[1] + left[2]))
+#       if right[0].isdigit() and right[1].isdigit() and right[2].isdigit():
+#         numNums += 1
+#         partNums.append(int(right[0] + right[1] + right[2]))
+#       if left[1].isdigit() and left[2].isdigit() and not left[0].isdigit():
+#         numNums += 1
+#         partNums.append(int(left[1] + left[2]))
+#       if right[0].isdigit() and right[1].isdigit() and not right[2].isdigit():
+#         numNums += 1
+#         partNums.append(int(right[0] + right[1]))
+#       if left[2].isdigit() and not left[1].isdigit() and not left[0].isdigit():
+#         numNums += 1
+#         partNums.append(int(left[2]))
+#       if right[0].isdigit() and not right[1].isdigit() and not right[2].isdigit():
+#         numNums += 1
+#         partNums.append(int(right[0]))
+#       print(i + 1, partNums)
+#       if numNums == 2:
+#         gearRatio = productList(partNums)
+#         sumGearRatios += gearRatio
+
+# print(sumGearRatios)
+
+
+#DAY 4
+
