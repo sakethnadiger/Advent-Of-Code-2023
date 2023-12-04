@@ -263,3 +263,40 @@ with open("myfile.txt", "r") as f:
 
 #DAY 4
 
+# totalPoints = 0
+# copies = []
+
+# for card in contents:
+#   myWinningNums = 0
+#   lenCardSubstring = card.find(':')
+#   if lenCardSubstring == 6:
+#     cardNumber = int(card[5])
+#   elif lenCardSubstring == 7:
+#     cardNumber = int(card[5] + card[6])
+#   elif lenCardSubstring == 8:
+#     cardNumber = int(card[5] + card[6] + card[7])
+#   else:
+#     continue
+  
+#   sets = card.split('|')
+#   winningNums = sets[0].split()
+#   del winningNums[0:2]
+#   myNums = sets[1].split()
+#   for num in myNums:
+#     if num in winningNums:
+#       myWinningNums += 1
+#   if myWinningNums > 0:
+#     for i in range(1, myWinningNums + 1):
+#       contents.append(contents[cardNumber - 1 + i])
+#   else:
+#     continue
+#   #part1
+#   # if myWinningNums > 0:
+#   #   points = pow(2, myWinningNums - 1)
+#   # else:
+#   #   points = 0
+#   # totalPoints += points
+# print(len(contents))
+
+#DAY 5
+
