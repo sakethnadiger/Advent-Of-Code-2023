@@ -300,3 +300,101 @@ with open("myfile.txt", "r") as f:
 
 #DAY 5
 
+ 
+# seeds = [int(seed) for seed in contents[0][7:].split(' ')]
+# # maps = [i for i in contents[2:] if i != '']
+
+
+
+# mapsList = contents[2:]
+# maps = []
+# temp = []
+# for i in mapsList:
+  
+#   if len(i) != 0:
+#     temp.append(i)
+#   else:
+#     del temp[0]
+#     maps.append(temp)
+#     temp = []
+
+# del temp[0]
+# maps.append(temp)
+
+  
+# locations = []
+# for s in seeds:
+#   for map in maps:
+#     for corr in map:
+#       source = int(corr.split()[1])
+#       dest = int(corr.split()[0])
+#       ran = int(corr.split()[2])
+      
+#       #print(source, dest, ran)
+#       if s >= source and s <= source + ran:
+#         s += (dest - source)      
+#     print(s)
+
+# #print(locations)
+
+#Not completed
+
+#DAY 6
+
+
+# times = contents[0].split()
+# del times[0]
+# part2times = ''
+# for time in times:
+#   part2times += time
+
+# part2times = int(part2times)
+
+# def findBonds(num):
+#   ls = []
+#   for i in range(num + 1):
+#     temp = [i, num - i]
+#     ls.append(temp)
+#   return ls
+
+
+# records = contents[1].split()
+# del records[0]
+# part2record = ''
+# for record in records:
+#   part2record += record
+
+# part2record = int(part2record)
+
+
+
+
+# #combinations = []
+
+# # for i, time in enumerate(times):
+# #   combosAboveRecord = 0
+# #   bonds = findBonds(int(time))
+# #   for pair in bonds:  
+# #     distance = pair[0] * pair[1]
+# #     if distance > int(records[i]):
+# #       combosAboveRecord += 1
+# #   combinations.append(combosAboveRecord)
+  
+# combosAboveRecord = 0
+# bonds = findBonds(part2times)
+
+
+# for pair in bonds:
+#   distance = pair[0] * pair[1]
+#   if distance > part2record:
+#     part2 = (pair[1] - pair[0]) + 1
+#     break
+  
+# print(part2)
+# # part1 = 1
+# # for c in combinations:
+# #   part1 *= c
+
+# # print(part1)
+    
+      
