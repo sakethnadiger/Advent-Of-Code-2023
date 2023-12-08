@@ -302,9 +302,6 @@ with open("myfile.txt", "r") as f:
 
  
 # seeds = [int(seed) for seed in contents[0][7:].split(' ')]
-# # maps = [i for i in contents[2:] if i != '']
-
-
 
 # mapsList = contents[2:]
 # maps = []
@@ -320,22 +317,37 @@ with open("myfile.txt", "r") as f:
 
 # del temp[0]
 # maps.append(temp)
+# for x in maps:
+#   for idj, j in enumerate(x):
+#     splitmap = [int(y) for y in str(j).split()]
+#     x[idj] = splitmap
+    
+# newSeeds = []
+# for t, u in enumerate(seeds):
+#   if t % 2 == 0:
+#     newSeedRange = [b for b in range(u, u + seeds[t + 1])]
+#     newSeeds.extend(newSeedRange)
+    
 
-  
-# locations = []
-# for s in seeds:
-#   for map in maps:
-#     for corr in map:
-#       source = int(corr.split()[1])
-#       dest = int(corr.split()[0])
-#       ran = int(corr.split()[2])
-      
-#       #print(source, dest, ran)
-#       if s >= source and s <= source + ran:
-#         s += (dest - source)      
-#     print(s)
+# items = seeds
+# for m in maps:
+#   newseeds = []
+#   for v in items:
+#     newv = v
+#     for destsourceranvals in m:
+#       dest = destsourceranvals[0]
+#       source = destsourceranvals[1]
+#       ran = destsourceranvals[2]
+#       difference = v - source
+#       if source <= v < source + ran:
+#         newv = difference + dest
+#         print(newv)
+#         break
+#     newseeds.append(newv)
+#     print(newseeds)
+#   items = newseeds
 
-# #print(locations)
+
 
 #Not completed
 
@@ -397,4 +409,179 @@ with open("myfile.txt", "r") as f:
 
 # # print(part1)
     
-      
+#DAY 7
+
+# handBid = {}
+# #This code may not do anything
+# def get_nth_key(dictionary, n=0):
+#   if n < 0:
+#     n += len(dictionary)
+#   for i, key in enumerate(dictionary.keys()):
+#     if i == n:
+#       return key
+#   raise IndexError("dictionary index out of range")
+
+# def findType(myHands):
+#   types = []
+#   for i in myHands:
+#     if len(set(i)) == len(i):
+#       if 'J' in i:
+#         types.append('OnePair')
+#       else:
+#         types.append('High')
+#     counts = {j: i.count(j) for j in i}
+#     dupecounter = 0
+#     triplePresent = False
+#     quadPresent = False
+#     allSame = False
+#     for x in counts:
+#       if counts[x] == 2:
+#         dupecounter += 1
+#       if counts[x] == 3:
+#         triplePresent = True
+#       if counts[x] == 4:
+#         quadPresent = True
+#     if len(counts) == 1:
+#       allSame = True
+#     if dupecounter == 1:
+#       if triplePresent:
+#         if 'J' not in counts:
+#           types.append('FullHouse')
+#         else:
+#           if counts['J'] == 2:
+#             types.append('Five')
+#           if counts['J'] == 3:
+#             types.append('Five')
+#       else:
+#         if 'J' in counts:
+#           types.append('Three')
+#         else:
+#           types.append('OnePair')
+#     elif dupecounter == 2:
+#       if 'J' in counts:
+#         if counts['J'] == 2:
+#           types.append('Four')
+#         if counts['J'] == 1:
+#           types.append('FullHouse')
+#       else:
+#         types.append('TwoPair')
+#     else:
+#       if triplePresent:
+#         if 'J' in counts:
+#           types.append('Four')
+#         else:
+#           types.append('Three')
+#       if quadPresent:
+#         if 'J' in counts:
+#           types.append('Five')
+#         else:
+#           types.append('Four')
+#       if allSame:
+#         types.append('Five')
+#     print(i)
+#   return types
+
+
+# vals = {
+#   "A":14,
+#   "K":13,
+#   "Q":12, 
+#   "J":1,
+#   "T":10,
+#   "9":9,
+#   "8":8,
+#   "7":7,
+#   "6":6,
+#   "5":5,
+#   "4":4,
+#   "3":3,
+#   "2":2
+  
+# }
+
+# hands = []
+# for i in contents:
+#   hand, bid = i.split()
+#   hands.append(hand)
+#   handBid[hand] = int(bid)
+
+# types = findType(hands)
+# print(types)
+
+# strengthsList = []
+# for hand in hands:
+#   strengthHand = []
+#   for card in hand:
+#     strengthHand.append(vals[card])
+#   strengthsList.append(strengthHand)
+
+
+# for idb, b in enumerate(hands):
+#   print(b, types[idb])
+
+# highs = []
+# ones = []
+# twos = []
+# threes = []
+# fullhouse = []
+# fours = []
+# fives = []
+
+# for idh, h in enumerate(strengthsList):
+#   correspondingType = types[idh]
+#   if correspondingType == 'High':
+#     highs.append(h)
+#   if correspondingType == 'FullHouse':
+#     fullhouse.append(h)
+#   if correspondingType == 'OnePair':
+#     ones.append(h)
+#   if correspondingType == 'TwoPair':
+#     twos.append(h)
+#   if correspondingType == 'Three':
+#     threes.append(h)
+#   if correspondingType == 'Four':
+#     fours.append(h)
+#   if correspondingType == 'Five':
+#     fives.append(h)
+
+# allCards = [highs, ones, twos, threes, fullhouse, fours, fives]
+
+# for cardSet in allCards:
+#   cardSet.sort(reverse=True)
+
+# allCards.reverse()
+# flatList = [j for subList in allCards for j in subList]
+
+
+
+# reversedVals = {
+#   14: "A",
+#   13: "K",
+#   12: "Q",
+#   1: "J",
+#   10: "T",
+#   9: "9",
+#   8: "8",
+#   7: "7",
+#   6: "6",
+#   5: "5",
+#   4: "4",
+#   3: "3",
+#   2: "2",
+# }
+
+# OGHands = []
+# for ids, s in enumerate(flatList):
+#   OGHand = []
+  
+#   for v in s:
+#     OGHand.append(reversedVals[v])
+#   OGHands.append(OGHand)
+
+# total = 0
+# for index, OG in enumerate(OGHands):
+#   myHandInString = OG[0] + OG[1] + OG[2] + OG[3] + OG[4]
+#   winning = ((len(OGHands) + 1) - (index + 1)) * handBid[myHandInString]
+#   total += winning  
+  
+# print(total)
