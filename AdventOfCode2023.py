@@ -585,3 +585,67 @@ with open("myfile.txt", "r") as f:
 #   total += winning  
   
 # print(total)
+
+#Day 8 - only part 1 completed
+
+# instruction = [i for i in contents[0]]
+# del contents[0]
+# del contents[0]
+# def findPos(node):
+#   for i in range(len(contents)):
+#     if contents[i][0:3] == node:
+#       pos = i
+#   return pos
+# startpos = findPos('AAA')
+
+
+# foundZZZ = False
+
+# currentLine = contents[startpos]
+# path = []
+# while foundZZZ == False:
+#   for inst in instruction:
+#     if inst == 'R':
+#       if currentLine[12:15] == 'ZZZ':
+#         foundZZZ = True
+#       next = findPos(currentLine[12:15])
+#     if inst == 'L':
+#       if currentLine[7:10] == 'ZZZ':
+#         foundZZZ = True
+#       next = findPos(currentLine[7:10])
+#     currentLine = contents[next]
+#     path.append(currentLine)
+# print(len(path))
+
+#Day 9 - part 2 was a small modification of part 1
+
+# extrapolatedValTotals = 0
+# for sequence in contents:
+#   currentSequence = [int(i) for i in sequence.split()]
+#   differences = []
+#   currentDiff = currentSequence
+#   diffResolved = False
+#   while diffResolved is False:
+#     newDiff = []
+#     for b in range(6):
+#       for val in range(len(currentDiff)):
+#         try:
+#           newDiff.append(currentDiff[val + 1] - currentDiff[val])
+#         except:
+#           continue
+#       differences.append(newDiff)
+#       currentDiff = newDiff
+#       newDiff = []
+#       if set(currentDiff) == {0}:
+#         diffResolved = True
+#         break
+#   differences.reverse()
+#   for diff in range(len(differences)):
+#     try:
+#       differences[diff + 1].append(differences[diff + 1][0] - differences[diff][-1])
+#     except:
+#       continue
+#   differences.append(currentSequence)
+#   extrapolatedVal = currentSequence[0] - differences[-2][-1]
+#   extrapolatedValTotals += extrapolatedVal
+# print(extrapolatedValTotals)
