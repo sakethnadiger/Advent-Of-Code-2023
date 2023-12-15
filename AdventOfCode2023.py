@@ -649,3 +649,24 @@ with open("myfile.txt", "r") as f:
 #   extrapolatedVal = currentSequence[0] - differences[-2][-1]
 #   extrapolatedValTotals += extrapolatedVal
 # print(extrapolatedValTotals)
+
+#Day 15 Part 1 Completed - was really easy
+# with open('myfile.txt') as f:
+#   contents = f.read()
+
+# strings = contents.split(',')
+
+# def findVal(string):
+#   currentVal = 0
+#   for character in string:
+#     currentVal += ord(character)
+#     currentVal *= 17
+#     currentVal %= 256
+#   return currentVal
+
+# totalVal = 0
+
+# for i in strings:
+#   totalVal += findVal(i)
+  
+# print(totalVal)
