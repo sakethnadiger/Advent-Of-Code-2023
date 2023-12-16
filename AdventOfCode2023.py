@@ -1,9 +1,9 @@
 
-contents = []
+# contents = []
 
-with open("myfile.txt", "r") as f:
-  for line in f:
-    contents.append(line.strip())
+# with open("myfile.txt", "r") as f:
+#   for line in f:
+#     contents.append(line.strip())
 
 #DAY 1
 # digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
@@ -650,7 +650,7 @@ with open("myfile.txt", "r") as f:
 #   extrapolatedValTotals += extrapolatedVal
 # print(extrapolatedValTotals)
 
-#Day 15 Part 1 Completed - was really easy
+#Day 15 Completed
 # with open('myfile.txt') as f:
 #   contents = f.read()
 
@@ -670,3 +670,52 @@ with open("myfile.txt", "r") as f:
 #   totalVal += findVal(i)
   
 # print(totalVal)
+
+# with open('myfile.txt') as f:
+#   contents = f.read()
+
+# strings = contents.split(',')
+# def findVal(string):
+#   currentVal = 0
+#   for character in string:
+#     currentVal += ord(character)
+#     currentVal *= 17
+#     currentVal %= 256
+#   return currentVal
+
+# boxes = [[] for _ in range(256)]
+
+# for s in strings:
+#   if '=' in s:
+#     label, focalLength = s.split('=')
+#     boxNum = findVal(label)
+#     if [label] in boxes[boxNum]:
+#       positionLabel = boxes[boxNum].index([label])
+#       boxes[boxNum][positionLabel + 1] = [focalLength]
+#     else:
+#       boxes[boxNum].append([label])
+#       boxes[boxNum].append([focalLength])
+#   if '-' in s:
+#     label = s.split('-')[0]
+#     boxNum = findVal(label)
+#     if [label] in boxes[boxNum]:
+#       positionLabel = boxes[boxNum].index([label])
+#       boxes[boxNum].pop(positionLabel + 1)
+#       boxes[boxNum].pop(positionLabel)
+
+# totalFocusingPower = 0
+# for box in range(len(boxes)):
+#   boxNumber = box + 1
+#   if len(boxes[box]) > 0:
+#     counter = 0
+#     for labelAndFocus in range(len(boxes[box])):
+#       if labelAndFocus % 2 == 0:
+#         counter += 1
+#         labelSlot = counter
+#         focalLengthNum = int(boxes[box][labelAndFocus + 1][0])
+#         currentFocusingPower = boxNumber * labelSlot * focalLengthNum
+#         totalFocusingPower += currentFocusingPower
+#   else:
+#     continue
+
+# print(totalFocusingPower)
