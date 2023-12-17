@@ -852,3 +852,40 @@ with open("myfile.txt", "r") as f:
 
 # furthest = (count // 2) + 1
 # print(furthest)
+
+#Day 14 Part 1
+
+# grid = []
+# for i in contents:
+#   temp = []
+#   for j in i:
+#     temp.append(j)
+#   grid.append(temp)
+
+# rocks = []
+# for i in range(len(grid)):
+#   for j in range(len(grid[i])):
+#     if grid[i][j] == "O":
+#       rocks.append((i, j))
+
+
+
+
+# for rock in rocks:
+#   if rock[0] == 0:
+#     continue
+#   else:
+#     current = rock
+#     while (grid[current[0] - 1][current[1]] not in ['O', '#']) and current[0] - 1 >= 0:
+#       grid[current[0] - 1][current[1]] = 'O'
+#       grid[current[0]][current[1]] = '.'
+#       current = (current[0] - 1, current[1])
+
+# totalLoad = 0
+# for rowNum in range(len(grid)):
+#   numRocksInRow = grid[rowNum].count('O')
+#   currentLoad = numRocksInRow * (len(grid) - rowNum)
+#   totalLoad += currentLoad
+
+# print(totalLoad)
+  
