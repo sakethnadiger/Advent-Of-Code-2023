@@ -1,9 +1,9 @@
 
-# contents = []
+contents = []
 
-# with open("myfile.txt", "r") as f:
-#   for line in f:
-#     contents.append(line.strip())
+with open("myfile.txt", "r") as f:
+  for line in f:
+    contents.append(line.strip())
 
 #DAY 1
 # digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
@@ -719,3 +719,136 @@
 #     continue
 
 # print(totalFocusingPower)
+
+#Day 10 Part 1 Completed
+# graph = [[] for l in contents]
+
+# for lineNum in range(len(contents)):
+#   for item in contents[lineNum]:
+#     graph[lineNum].append([item])
+
+# for x in range(len(graph)):
+#   if ['S'] in graph[x]:
+#     startPosition = [x, graph[x].index(['S'])]
+    
+
+# currentPos = startPosition
+
+# possibleConnectors_N = {'|': ['|', 'F', '7', 'S'], '-': None, 'L': ['|', 'F', '7', 'S'], 'J': ['|', 'F', '7', 'S'], '7': None, 'F' : None}
+# possibleConnectors_S = {'|': ['|', 'J', 'L', 'S'], '-': None, 'L': None, 'J': None, '7': ['|', 'J', 'L', 'S'], 'F' : ['|', 'J', 'L', 'S']}
+# possibleConnectors_E = {'|': None, '-': ['J', '7', '-', 'S'], 'L': ['J', '7', '-', 'S'], 'J': None, '7': None, 'F' : ['J', '7', '-', 'S']}
+# possibleConnectors_W= {'|': None, '-': ['F', 'L', '-', 'S'], 'L': None, 'J': ['F', 'L', '-', 'S'], '7': ['F', 'L', '-', 'S'], 'F' : None}
+
+
+
+# if graph[currentPos[0] - 1][currentPos[1]][0] in ['|', 'F', '7']:
+#   currentPos = [currentPos[0] - 1, currentPos[1]]
+# elif graph[currentPos[0] + 1][currentPos[1]][0] in ['|', 'J', 'L']:
+#   print("yes")
+#   currentPos = [currentPos[0] + 1, currentPos[1]]
+# elif graph[currentPos[0]][currentPos[1] - 1][0] in ['-', 'F', 'L']:
+#   currentPos = [currentPos[0], currentPos[1] - 1]
+# elif graph[currentPos[0]][currentPos[1] + 1][0] in ['-', 'J', '7']:
+#   currentPos = [currentPos[0], currentPos[1] + 1]
+
+# prevPos = startPosition
+# notLooped = graph[currentPos[0]][currentPos[1]] == ['S']
+
+# print(currentPos)
+# count = 0
+# while graph[currentPos[0]][currentPos[1]] != ['S']:
+#   count += 1
+#   print(graph[currentPos[0]][currentPos[1]])
+#   if graph[currentPos[0]][currentPos[1]][0] == '|':
+#     if graph[currentPos[0] - 1][currentPos[1]][0] == 'S' and [currentPos[0] - 1, currentPos[1]] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] + 1][currentPos[1]][0] == 'S' and [currentPos[0] + 1, currentPos[1]] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] - 1][currentPos[1]][0] in possibleConnectors_N[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0] - 1, currentPos[1]] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0] - 1,currentPos[1]]
+
+#     elif graph[currentPos[0] + 1][currentPos[1]][0] in possibleConnectors_S[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0] + 1, currentPos[1]] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0] + 1,currentPos[1]]
+      
+#   elif graph[currentPos[0]][currentPos[1]][0] == '-':
+#     if graph[currentPos[0]][currentPos[1] - 1][0] == 'S' and [currentPos[0], currentPos[1] - 1] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0]][currentPos[1] + 1][0] == 'S' and [currentPos[0], currentPos[1] + 1] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0]][currentPos[1] - 1][0] in possibleConnectors_W[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0], currentPos[1] - 1] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0],currentPos[1] - 1]
+      
+#     elif graph[currentPos[0]][currentPos[1] + 1][0] in possibleConnectors_E[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0], currentPos[1] + 1] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0],currentPos[1] + 1]
+      
+#   elif graph[currentPos[0]][currentPos[1]][0] == 'F':
+#     if graph[currentPos[0] + 1][currentPos[1]][0] == 'S' and [currentPos[0] + 1, currentPos[1]] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0]][currentPos[1] + 1][0] == 'S' and [currentPos[0], currentPos[1] + 1] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] + 1][currentPos[1]][0] in possibleConnectors_S[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0] + 1, currentPos[1]] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0] + 1,currentPos[1]]
+      
+#     elif graph[currentPos[0]][currentPos[1] + 1][0] in possibleConnectors_E[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0], currentPos[1] + 1] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0],currentPos[1] + 1]
+      
+#   elif graph[currentPos[0]][currentPos[1]][0] == '7':
+#     if graph[currentPos[0] + 1][currentPos[1]][0] == 'S' and [currentPos[0] + 1, currentPos[1]] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0]][currentPos[1] - 1][0] == 'S' and [currentPos[0], currentPos[1] - 1] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] + 1][currentPos[1]][0] in possibleConnectors_S[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0] + 1, currentPos[1]] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0] + 1,currentPos[1]]
+    
+#     elif graph[currentPos[0]][currentPos[1] - 1][0] in possibleConnectors_W[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0], currentPos[1] - 1] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0],currentPos[1] - 1]
+      
+#   elif graph[currentPos[0]][currentPos[1]][0] == 'L':
+#     if graph[currentPos[0]][currentPos[1] + 1][0] == 'S' and [currentPos[0], currentPos[1] + 1] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] - 1][currentPos[1]][0] == 'S' and [currentPos[0] - 1, currentPos[1]] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] - 1][currentPos[1]][0] in possibleConnectors_N[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0] - 1, currentPos[1]] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0] - 1,currentPos[1]]
+      
+#     elif graph[currentPos[0]][currentPos[1] + 1][0] in possibleConnectors_E[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0], currentPos[1] + 1] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0],currentPos[1] + 1]
+      
+#   elif graph[currentPos[0]][currentPos[1]][0] == 'J':
+#     if graph[currentPos[0]][currentPos[1] - 1][0] == 'S' and [currentPos[0], currentPos[1] - 1] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] - 1][currentPos[1]][0] == 'S' and [currentPos[0] - 1, currentPos[1]] != prevPos:
+#       notLooped = True
+#       break
+#     if graph[currentPos[0] - 1][currentPos[1]][0] in possibleConnectors_N[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0] - 1, currentPos[1]] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0] - 1,currentPos[1]]
+      
+#     elif graph[currentPos[0]][currentPos[1] - 1][0] in possibleConnectors_W[graph[currentPos[0]][currentPos[1]][0]] and [currentPos[0], currentPos[1] - 1] != prevPos:
+#       prevPos = currentPos
+#       currentPos = [currentPos[0],currentPos[1] - 1]
+
+
+# furthest = (count // 2) + 1
+# print(furthest)
